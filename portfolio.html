@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image:url('https://png.pngtree.com/thumb_back/fh260/background/20210324/pngtree-pink-memphis-playful-abstract-portfolio-image_593423.jpg');
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .project {
+      background: #ecf0f1;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    #inputForm {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      width: 280px;
+      border-radius: 5px;
+      border: 1px solid #725454;
+    }
+
+    button {
+      background-color: #7e4866;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="inputForm">
+    <h2>Create Your Portfolio</h2>
+    <input type="text" id="nameInput" placeholder="Enter Your Name" /><br />
+    <input type="email" id="emailInput" placeholder="Enter Your Email" /><br />
+    <input type="text" id="contactInput" placeholder="Enter Your Contact Number" /><br />
+    <input type="text" id="githubInput" placeholder="Enter Your GitHub URL" /><br />
+    <input type="text" id="linkedinInput" placeholder="Enter Your LinkedIn URL" /><br />
+    <button onclick="generatePortfolio()">Generate Portfolio</button>
+  </div>
+
+  <div id="portfolio" style="display: none;">
+    <header>
+      <h1 id="userName"></h1>
+      <p>Web Developer | Python Enthusiast | UI/UX Designer</p>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm <span id="nameAbout"></span>, a passionate web developer with a love for creating interactive and user-friendly websites. I specialize in frontend and backend development using HTML, CSS, JavaScript, and Python frameworks like Flask and Django.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Weather App</h3>
+        <p>A web app that shows live weather using OpenWeatherMap API. Built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>This personal website showcases my projects and experience. Designed with responsive layouts.</p>
+      </div>
+      <div class="project">
+        <h3>Currency Converter (Python)</h3>
+        <p>Real-time currency converter using Python and ExchangeRate-API.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <span id="userEmail"></span></p>
+      <p>Phone: <span id="userContact"></span></p>
+      <p>GitHub: <a href="#" id="userGitHub" target="_blank">GitHub Profile</a></p>
+      <p>LinkedIn: <a href="#" id="userLinkedIn" target="_blank">LinkedIn Profile</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 <span id="footerName"></span>. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function generatePortfolio() {
+      const name = document.getElementById("nameInput").value.trim();
+      const email = document.getElementById("emailInput").value.trim();
+      const contact = document.getElementById("contactInput").value.trim();
+      const github = document.getElementById("githubInput").value.trim();
+      const linkedin = document.getElementById("linkedinInput").value.trim();
+
+      if (!name || !email || !contact || !github || !linkedin) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      document.getElementById("userName").textContent = name;
+      document.getElementById("nameAbout").textContent = name;
+      document.getElementById("userEmail").textContent = email;
+      document.getElementById("userContact").textContent = contact;
+      document.getElementById("userGitHub").href = github;
+      document.getElementById("userLinkedIn").href = linkedin;
+      document.getElementById("footerName").textContent = name;
+
+      document.getElementById("inputForm").style.display = "none";
+      document.getElementById("portfolio").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
+
+
